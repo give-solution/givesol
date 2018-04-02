@@ -49,7 +49,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Admin</h2>
+                <h2>Admin {{ Auth::user()->name }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -71,7 +71,7 @@
                   <li><a><i class="fa fa-edit"></i> Post <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('create') }}">Make a post</a></li>
-                      <li><a href="form_advanced.html">All posts</a></li>
+                      <li><a href="{{ route('index') }}">All posts</a></li>
                     <!--  <li><a href="form_validation.html">Form Validation</a></li>
                       <li><a href="form_wizards.html">Form Wizard</a></li>
                       <li><a href="form_upload.html">Form Upload</a></li>
@@ -172,11 +172,19 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
             </div>
-            <!-- /menu footer buttons -->
+            <!-- /menu footer buttons 
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> {{ __('Logout') }}</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+            -->
           </div>
         </div>
 

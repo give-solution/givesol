@@ -15,7 +15,9 @@ class DasboardController extends Controller
      */
     public function index()
     {
-        //
+        $posts=Post::all();
+
+        return view('pages/user', compact('posts'));
     }
 
     /**
@@ -37,6 +39,11 @@ class DasboardController extends Controller
      */
     public function store()
     {
+        $this ->validate(request(),[
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+
         Post::create([
             'title'=> request('title'),
             'slug'=>str_slug(request('title')),
@@ -44,7 +51,7 @@ class DasboardController extends Controller
             'category_id'=>request('category_id')
 
         ]);
-        return redirect('/home');
+        return redirect()->route('index');
     }
 
     /**
@@ -64,9 +71,10 @@ class DasboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $categories=categories::all();
+        return view('pages.edit',compact('post','categories'));
     }
 
     /**
@@ -76,9 +84,14 @@ class DasboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Post $post)
     {
-        //
+        $post->update([
+            'title'=>request('title'),
+            'category_id'=>request('category_id'),
+            'content'=>request('content')
+        ]);
+        return redirect()->route('index');
     }
 
     /**
@@ -87,8 +100,10 @@ class DasboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('index');
     }
 }

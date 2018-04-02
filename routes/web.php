@@ -18,5 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/list', 'DasboardController@index')->name('index');
 Route::get('/create', 'DasboardController@create')->name('create');
 Route::post('/create', 'DasboardController@store')->name('store');
+Route::get('/{post}/edit', 'DasboardController@edit')->name('edit');
+Route::patch('/{post}/edit', 'DasboardController@update')->name('update');
+Route::delete('/{post}/delete', 'DasboardController@destroy')->name('destroy');
+
