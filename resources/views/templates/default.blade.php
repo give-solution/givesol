@@ -72,9 +72,9 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ route('create') }}">Make a post</a></li>
                       <li><a href="{{ route('index') }}">All posts</a></li>
-                    <!--  <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
+                      <li><a href="{{ route('category.create') }}">Create Category</a></li>
+                     <li><a href="{{ route('category.index') }}">All Category</a></li>
+                    <!--   <li><a href="form_upload.html">Form Upload</a></li>
                       <li><a href="form_buttons.html">Form Buttons</a></li> -->
                     </ul>
                   </li>
@@ -172,12 +172,15 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+              <!--<a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
-                                    </form>
+                                    </form> -->
             </div>
             <!-- /menu footer buttons 
             <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> {{ __('Logout') }}</a>
@@ -220,7 +223,7 @@
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
+               <!--<li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
@@ -283,7 +286,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li>-->
               </ul>
             </nav>
           </div>
@@ -296,7 +299,7 @@
          
 
         <!-- /page content -->
-        
+        </div>
         <!-- footer content -->
         <footer>
           <div class="pull-right">

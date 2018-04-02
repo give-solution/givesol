@@ -4,30 +4,29 @@
 <div class="">
 	<div class="page-title">
               <div class="title_left">
-                <h3>List Post</h3>
+                <h3>List Category</h3>
               </div>
 
               </div>
               <div class="clearfix"></div>
-              @foreach($posts as $post)
-              <div class="row container">
+              @foreach($category as $Category)
+              <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
               	
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>{{ $post->title }} <small>
-                             {{ $post->category->name }}</small></h2>
+                    <h2>{{ $Category->name }} </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li>
-                      	<form action="{{ route('edit',$post) }}" method="get">
+                      	<form action="{{ route('category.edit',$Category) }}" method="get">
               					
                         	<button type="submit" class="btn btn-success">Edit</button>
                         </form>
                       </li>
                       <li>
-                        <form action="{{ route('destroy',$post) }}" method="post">
+                        <form action="{{ route('category.destroy',$Category) }}" method="post">
                         	{{ csrf_field() }}
                         	{{ method_field('DELETE') }}
                         	<button type="submit" class="btn btn-danger">Hapus</button>
@@ -37,10 +36,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    <br />
-                    <p>{{ $post->content }}</p>
-                  </div>
+                 
                 </div>
               </div>
             </div>
