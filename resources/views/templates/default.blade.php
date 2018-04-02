@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <title>Give-Solution | </title>
@@ -60,7 +61,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="home"><i class="fa fa-home"></i> Home </a>
+                  <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Home </a>
                   <!--  <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
                       <li><a href="index2.html">Dashboard2</a></li>
@@ -69,7 +70,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Post <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ route('post.create') }}">Make a post</a></li>
+                      <li><a href="{{ route('create') }}">Make a post</a></li>
                       <li><a href="form_advanced.html">All posts</a></li>
                     <!--  <li><a href="form_validation.html">Form Validation</a></li>
                       <li><a href="form_wizards.html">Form Wizard</a></li>

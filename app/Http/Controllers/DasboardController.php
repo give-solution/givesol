@@ -35,13 +35,16 @@ class DasboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        post::create([
+        Post::create([
             'title'=> request('title'),
-            'content'=> request('content')
+            'slug'=>str_slug(request('title')),
+            'content'=> request('content'),
+            'category_id'=>request('category_id')
 
         ]);
+        return redirect('/home');
     }
 
     /**
